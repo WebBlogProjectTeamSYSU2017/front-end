@@ -15,9 +15,9 @@
               <FormItem class="buttonArea">
                 <Button class="button" long @click="login">登录</Button>
               </FormItem>
-              <!-- <FormItem class="test">
+              <FormItem class="test">
                 <Button class="button" long @click="toNext">跳转测试</Button>
-              </FormItem> -->
+              </FormItem>
             </Form>
           </TabPane>
           <TabPane class="contentArea" icon="ios-person-add-outline" label="注册" name="register">
@@ -107,7 +107,10 @@ export default {
             password: this.loginInfo.password
           }).then(res => {
             if (res.data.ok) {
+              this.$cookies.delete('jwt')
+              let token = res.data.data.token
               this.$Message.success('登陆成功')
+              this.$cookies.set('jwt', token)
               this.toNext()
             } else {
               this.$Message.error(res.data.data)

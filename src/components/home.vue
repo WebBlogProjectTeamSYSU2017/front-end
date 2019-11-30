@@ -127,6 +127,10 @@ export default {
             ispublic: this.createblog.ispublic,
             content: this.createblog.content,
             tag: this.createblog.tag
+          }, {
+            headers: {
+              token: this.$cookies.get('jwt')
+            }
           }).then(res => {
             if (res.data.ok) {
               this.$Message.success('发布成功')
@@ -148,7 +152,11 @@ export default {
     },
     loadMyBlogs: function () {
       console.log('loadMyBlogs()')
-      this.$http.get('/api/' + this.userInfo.email + '/bloghome/').then(res => {
+      this.$http.get('/api/' + this.userInfo.email + '/bloghome/', {
+        headers: {
+          token: this.$cookies.get('jwt')
+        }
+      }).then(res => {
         if (res.data.ok) {
           this.myblogs = res.data.data
         } else {
@@ -161,7 +169,11 @@ export default {
     },
     loadGroudBlogs: function () {
       console.log('loadGroundBlogs()')
-      this.$http.get('/api/' + this.userInfo.email + '/blogground/').then(res => {
+      this.$http.get('/api/' + this.userInfo.email + '/blogground/', {
+        headers: {
+          token: this.$cookies.get('jwt')
+        }
+      }).then(res => {
         if (res.data.ok) {
           this.groundblogs = res.data.data
         } else {
@@ -176,6 +188,10 @@ export default {
       console.log('deleteblog()')
       this.$http.delete('/api/' + this.userInfo.email + '/bloghome/', {
         id: blogid
+      }, {
+        headers: {
+          token: this.$cookies.get('jwt')
+        }
       }).then(res => {
         if (res.data.ok) {
           this.$Message.success('删除成功')
