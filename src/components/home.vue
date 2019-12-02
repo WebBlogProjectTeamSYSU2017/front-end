@@ -122,7 +122,7 @@ export default {
         if (valid) {
           console.log(this.createblog)
           console.log('submit()')
-          this.$http.post('/api/' + this.userInfo.email + '/createblog/', {
+          this.$http.post('/api/' + this.userInfo.email + '/createblog', {
             title: this.createblog.title,
             ispublic: this.createblog.ispublic,
             content: this.createblog.content,
@@ -152,7 +152,7 @@ export default {
     },
     loadMyBlogs: function () {
       console.log('loadMyBlogs()')
-      this.$http.get('/api/' + this.userInfo.email + '/bloghome/', {
+      this.$http.get('/api/' + this.userInfo.email + '/bloghome', {
         headers: {
           token: this.$cookies.get('jwt')
         }
@@ -169,7 +169,7 @@ export default {
     },
     loadGroudBlogs: function () {
       console.log('loadGroundBlogs()')
-      this.$http.get('/api/' + this.userInfo.email + '/blogground/', {
+      this.$http.get('/api/' + this.userInfo.email + '/blogground', {
         headers: {
           token: this.$cookies.get('jwt')
         }
@@ -186,7 +186,7 @@ export default {
     },
     deleteBlog: function (blogid) {
       console.log('deleteblog()')
-      this.$http.delete('/api/' + this.userInfo.email + '/bloghome/', {
+      this.$http.delete('/api/' + this.userInfo.email + '/bloghome', {
         id: blogid
       }, {
         headers: {
