@@ -64,7 +64,7 @@
       fullscreen
       scrollable
       >
-      <p >{{showBlog.content}}</p>
+      <pre>{{showBlog.content}}</pre>
     </Modal>
   </div>
 </template>
@@ -111,6 +111,10 @@ export default {
   created () {
     this.userInfo.email = this.$route.params.email
     this.status = 'blogground'
+    if (!this.$cookies.get('jwt')) {
+      console.log("no user is login")      
+      this.$router.replace('/')
+    }
     // this.userInfo.username = this.$route.params.username
   },
   methods: {
