@@ -112,7 +112,7 @@ export default {
     this.userInfo.email = this.$route.params.email
     this.status = 'blogground'
     if (!this.$cookies.get('jwt')) {
-      console.log("no user is login")      
+      console.log('no user is login')
       this.$router.replace('/')
     }
     // this.userInfo.username = this.$route.params.username
