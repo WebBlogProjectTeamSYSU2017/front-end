@@ -187,10 +187,11 @@ export default {
     deleteBlog: function (blogid) {
       console.log('deleteblog()')
       this.$http.delete('/api/' + this.userInfo.email + '/bloghome', {
-        id: blogid
-      }, {
         headers: {
           token: this.$cookies.get('jwt')
+        },
+        data: {
+          id: blogid
         }
       }).then(res => {
         if (res.data.ok) {
