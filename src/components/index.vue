@@ -6,8 +6,8 @@
         <Tabs>
           <TabPane class="contentArea" icon="ios-log-in" label="登录" name="login">
             <Form ref="loginInfo" :model="loginInfo" :rules="rules">
-              <FormItem prop="email">
-                <Input size="large" type="text" v-model="loginInfo.email" prefix="ios-mail-outline" placeholder="邮箱" />
+              <FormItem prop="username">
+                <Input size="large" type="text" v-model="loginInfo.email" prefix="ios-mail-outline" placeholder="用户名" />
               </FormItem>
               <FormItem prop="password">
                 <Input size="large" type="password" v-model="loginInfo.password" prefix="ios-lock-outline" placeholder="密码" />
@@ -75,7 +75,7 @@ export default {
         ],
         username: [
           {required: true, message: '用户昵称不能为空', trigger: 'blur'},
-          {type: 'string', min: 6, max: 10, message: '长度在4-10字符之间', trigger: 'blur'}
+          {type: 'string', min: 6, max: 10, message: '长度在6-10字符之间', trigger: 'blur'}
         ],
         password: [
           {required: true, message: '密码不能为空', trigger: 'blur'},
@@ -107,7 +107,7 @@ export default {
             password: this.loginInfo.password
           }).then(res => {
             if (res.data.ok) {
-              this.$cookies.delete('jwt')
+              this.$cookies.remove('jwt')
               let token = res.data.data.token
               this.$Message.success('登陆成功')
               this.$cookies.set('jwt', token)
