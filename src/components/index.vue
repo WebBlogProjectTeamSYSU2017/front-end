@@ -6,8 +6,8 @@
         <Tabs>
           <TabPane class="contentArea" icon="ios-log-in" label="登录" name="login">
             <Form ref="loginInfo" :model="loginInfo" :rules="rules">
-              <FormItem prop="username">
-                <Input size="large" type="text" v-model="loginInfo.email" prefix="ios-mail-outline" placeholder="用户名" />
+              <FormItem prop="email">
+                <Input size="large" type="text" v-model="loginInfo.email" prefix="ios-mail-outline" placeholder="邮箱" />
               </FormItem>
               <FormItem prop="password">
                 <Input size="large" type="password" v-model="loginInfo.password" prefix="ios-lock-outline" placeholder="密码" />
