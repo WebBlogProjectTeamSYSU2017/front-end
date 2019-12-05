@@ -232,7 +232,7 @@ h1{
   margin-bottom: 5%;
 }
 .container {
-  height: 95vmin;
+  height: 155vmin;
   width: 95vmax;
   border-radius: 20px;
   background-color: white;
@@ -250,7 +250,7 @@ h1{
 .message{
   padding: 10%;
   text-align: center;
-  height: 30%;
+  height: 25%;
   background-color: rgba(0, 195, 255, 0.5);
   color: white;
 }
